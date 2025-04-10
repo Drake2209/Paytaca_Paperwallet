@@ -196,7 +196,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 
-/*Dark Mode*/ 
+/*Dark Mode*/
 .dark-mode .landing-container,
 .dark-mode .landing-header {
   background-color: rgb(30 41 59 );
@@ -315,8 +315,8 @@ export default {
   top: 0;
   left: 0;
   display: flex;
-  align-items: center; 
-  gap: 10px; 
+  align-items: center;
+  gap: 10px;
   z-index: 1000;
 }
 
@@ -361,6 +361,48 @@ export default {
   text-decoration: none;
 }
 
+@media (max-width: 600px) {
+  .site-title{
+    font-size: 14px;
+  }
+  .toggle-button{
+    font-size: 14px;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+  }
+  .header-padding-text{
+    font-size: 12px;
+  }
+  .paper5-logo{
+    height: 30px;
+    width: 30px;
+  }
+  .wallet-description{
+    font-size: 14px !important;
+    padding: 10px;
+  }
+  .hash-generator{
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+  .progress-container p{
+    font-size: 14px;
+  }
+  .progress-bar-container {
+    height: 30px !important;
+  }
+  .input-bar{
+    font-size: 12px !important;
+  }
+  .jumbled-text{
+    font-size: 14px !important;
+    width: 100vw !important;
+    word-break: break-word;
+    padding: 20px;
+  }
+}
+
 .wallet-description {
   text-align: center;
   font-size: 25px;
@@ -378,7 +420,7 @@ export default {
   font-weight: bold;
   font-size: 20px;
   font-family: 'Lexend';
-  
+
 }
 
 .progress-bar-container {
@@ -423,14 +465,14 @@ export default {
 }
 
 .hash-generator {
-  width: 400px; 
-  background-color: white; 
-  padding: 20px; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  text-align: center; 
-  margin: 30px auto 0; 
-  position: relative; 
+  width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 30px auto 0;
+  position: relative;
 }
 
 .jumbled-text {

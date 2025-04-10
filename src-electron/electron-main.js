@@ -15,7 +15,7 @@ async function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    icon: path.resolve(currentDir, 'icons/icon.png'), 
+    icon: path.resolve(currentDir, 'icons/icon.png'),
     width: 1000,
     height: 600,
     useContentSize: true,
