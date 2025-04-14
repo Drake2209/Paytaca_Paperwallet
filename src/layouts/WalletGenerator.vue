@@ -129,13 +129,13 @@
                     <div class="qr-section public-section">
                       <img :src="wallet.qrCodePublic" alt="Public QR Code" class="qr-code public-qr" />
                     </div>
-                    <p class="wallet-address">{{ wallet.address }}</p>
+                    <p class="wallet-address" :style="{color: selectedDesign?.addressColor || 'inherit'}" >{{ wallet.address }}</p>
 
                     <!-- Private Key QR -->
                     <div class="qr-section private-section">
                       <img :src="wallet.qrCodePrivate" alt="Private QR Code" class="qr-code private-qr" />
                     </div>
-                    <p class="private-key">{{ wallet.encryptedWIF ? wallet.encryptedWIF : wallet.wif }}</p>
+                    <p class="private-key" :style="{color: selectedDesign?.textColor || 'inherit', fontWeight: 'bold'}"  >{{ wallet.encryptedWIF ? wallet.encryptedWIF : wallet.wif }}</p>
                   </div>
                   </div>
                 </div>
@@ -201,16 +201,16 @@ export default {
       passphrase: '',
       //isEncrypted: false,
       designs: [
-        { id: 1, image: pw1, textColor: 'black' },
-        { id: 2, image: pw2, textColor: 'white' },
-        { id: 3, image: pw3, textColor: 'black' },
-        { id: 4, image: pw4, textColor: 'white' },
-        { id: 5, image: pw5, textColor: 'black' },
-        { id: 6, image: pw6, textColor: 'white' },
-        { id: 7, image: pw7, textColor: 'black' },
-        { id: 8, image: pw8, textColor: 'white' },
-        { id: 9, image: pw9, textColor: 'black' },
-        { id: 10, image: pw10, textColor: 'black' },
+        { id: 1, image: pw1, textColor: 'black', addressColor: 'white' },
+        { id: 2, image: pw2, textColor: 'white', addressColor: 'black' },
+        { id: 3, image: pw3, textColor: 'white', addressColor: 'black' },
+        { id: 4, image: pw4, textColor: 'white', addressColor: 'black' },
+        { id: 5, image: pw5, textColor: 'white', addressColor: 'black' },
+        { id: 6, image: pw6, textColor: 'white', addressColor: 'black' },
+        { id: 7, image: pw7, textColor: 'white', addressColor: 'black' },
+        { id: 8, image: pw8, textColor: 'white', addressColor: 'black' },
+        { id: 9, image: pw9, textColor: 'white', addressColor: 'black' },
+        { id: 10, image: pw10, textColor: 'white', addressColor: 'black' },
       ],
     };
   },
@@ -555,6 +555,7 @@ generateQRCode(address, amount) {
 
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 .bip38-label {
   font-weight: bold;
@@ -674,7 +675,7 @@ generateQRCode(address, amount) {
 .spinner {
   position: absolute;
   top: 40%;
-  left: 15%;
+  left: 17.8%;
   width: 18px;
   height: 18px;
   border: 2px solid #ccc;
@@ -1085,7 +1086,7 @@ font-family: 'Lexend';
 }
 
 .private-key {
-  font-weight: 90%;
+  font-family: 'Roboto';
   color: white;
   position: absolute;
   font-size: 10.9px;
@@ -1128,6 +1129,16 @@ font-family: 'Lexend';
   padding-top: 0%;
   padding: 0%;
   padding-bottom: 0%;
+}
+
+@media print and (orientation: landscape) {
+  .wallet-padding {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    padding: 0%;
+    padding-bottom: 0%;
+  }
 }
 
 /*         Start Media            */
@@ -1245,7 +1256,7 @@ font-family: 'Lexend';
     font-size: clamp(0.8rem, 1rem, 0.8rem );
   }
   .bch-amount {
-    margin-left: 17%;
+    margin-left: 16.5%;
     margin-right: -10%;
   }
   .bip38-label {

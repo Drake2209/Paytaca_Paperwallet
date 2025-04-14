@@ -73,10 +73,24 @@ export default {
     };
   },
 
-  async created() {
-    document.body.classList.toggle("dark-mode", this.isdarkMode);
-    document.body.classList.toggle("light-mode", this.islightMode);
-  },
+  toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      this.isLightMode = !this.isLightMode; // Ensure only one mode is active
+
+      // Save the mode in local storage
+      localStorage.setItem("darkMode", this.isDarkMode);
+      localStorage.setItem("lightMode", this.isLightMode);
+
+      // Remove both modes first, then apply the correct one
+      document.body.classList.remove("light-mode", "dark-mode");
+      if (this.isDarkMode) {
+        document.body.classList.add("dark-mode");
+        document.body.classList.remove("light-mode");
+      } else {
+        document.body.classList.add("light-mode");
+        document.body.classList.remove("light-mode");
+      }
+    },
 
 
   mounted() {
@@ -103,7 +117,7 @@ export default {
         document.body.classList.remove("light-mode");
       }else{
         document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
+        document.body.classList.remove("light-mode");
       }
     },
 
@@ -251,7 +265,7 @@ export default {
   right: 35px;
   width: 40px;
   height: 40px;
-  background: white;
+  background: #EEDC82;
   color: black;
   border: none;
   border-radius: 50%;
