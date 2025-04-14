@@ -15,12 +15,14 @@ async function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    icon: path.resolve(currentDir, 'icons/icon.png'),
-    width: 1000,
-    height: 600,
+    icon: path.join(currentDir, 'public', 'paytacaicon.ico'),
+    fullscreen: false,
+    frame: true,         
+    show: false, 
     useContentSize: true,
     webPreferences: {
       contextIsolation: true,
+      devTools: false,
       preload: path.resolve(
         currentDir,
         path.join(process.env.QUASAR_ELECTRON_PRELOAD_FOLDER, 'electron-preload' + process.env.QUASAR_ELECTRON_PRELOAD_EXTENSION)
@@ -28,20 +30,14 @@ async function createWindow () {
     }
   })
 
+  mainWindow.setMenu(null)
+  mainWindow.maximize()
+  mainWindow.show()
+
   if (process.env.DEV) {
     await mainWindow.loadURL(process.env.APP_URL)
   } else {
     await mainWindow.loadFile('index.html')
-  }
-
-  if (process.env.DEBUGGING) {
-    // if on DEV or Production with debug enabled
-    mainWindow.webContents.openDevTools()
-  } else {
-    // we're on production; no access to devtools pls
-    mainWindow.webContents.on('devtools-opened', () => {
-      mainWindow.webContents.closeDevTools()
-    })
   }
 
   mainWindow.on('closed', () => {

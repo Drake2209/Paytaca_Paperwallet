@@ -32,7 +32,7 @@
             <span class="progress-text">{{ progress.toFixed(1) }}%</span>
           </div>
         </div>
-        
+
         <!-- Manual input area -->
         <input class="input-bar" v-model="manualEntropy" @input="updateEntropy" placeholder="no mouse? enter random text here">
       </div>
@@ -59,7 +59,7 @@ export default {
   name: "BCHAddressGenerator",
   data() {
     return {
-      entropy: "",   
+      entropy: "",
       manualEntropy: "",
       progress: 0,
       generatedAddress: "",
@@ -111,7 +111,7 @@ export default {
     captureEntropy(event) {
       if (this.addressGenerated || this.progress >= 100) return;
       this.entropy += `${event.clientX},${event.clientY}|`;
-      this.progress += 0.1;
+      this.progress += 0.3;
       if (this.progress >= 100) {
         this.progress = 100;
         this.generateAddress();
@@ -124,7 +124,7 @@ export default {
     updateEntropy() {
       if (this.addressGenerated || this.progress >= 100) return;
       this.entropy += this.manualEntropy;
-      this.progress += 0.1;
+      this.progress += 0.76;
       if (this.progress >= 100) {
         this.progress = 100;
         this.generateAddress();
@@ -136,11 +136,11 @@ export default {
         await this.generatePrivateKeyFromEntropy(this.entropy);
       this.generatedAddress = cashAddress; // Use the BCH CashAddr format
       this.addressGenerated = true;
-      this.qrCodeData = await QRCode.toDataURL(this.generatedAddress); 
-      console.log(this.generatedAddress); // Log the generated address
+      this.qrCodeData = await QRCode.toDataURL(this.generatedAddress);
+      // console.log(this.generatedAddress);
       this.redirectToWalletGenerator();
     },
-    
+
     async generatePrivateKeyFromEntropy(entropy) {
       const ec = new EC("secp256k1");
 

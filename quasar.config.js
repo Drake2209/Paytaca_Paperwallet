@@ -132,10 +132,21 @@ export default defineConfig(() => {
         extraFiles: [
           'src/assets/**/*'
         ],
+        /*mac: {
+          target: 'dmg',
+          category: 'public.app-category.utilities'
+        },/* Uncomment for macOS specific settings */
+        linux: {
+          target: ['AppImage', 'deb'],
+          category: 'Utility',
+          maintainer: 'Your Name <you@example.com>',
+          synopsis: 'Paytaca Paper Wallet',
+          description: 'An Electron app for generating and printing BCH wallets.',
+        }
       }
     },
     bex: {
       extraScripts: []
-    }
+    },
   }
 })

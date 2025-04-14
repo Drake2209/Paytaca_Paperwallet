@@ -2,7 +2,7 @@
   "name": "paytaca-paperwallet",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "paytaca",
+  "productName": "Paytaca Paper Wallet",
   "author": "Drake2209 <drake.carcellar16@gmail.com>",
   "type": "module",
   "private": true,
