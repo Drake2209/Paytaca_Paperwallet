@@ -677,13 +677,9 @@ generateQRCode(address, amount) {
 .spinner {
   position: absolute;
   top: 40%;
-<<<<<<< HEAD
-  left: 17.8%;
-=======
   left: 17%;
   top: 40%;
   left: 15%;
->>>>>>> b6c1fe0a1708165422e10a2464a25eea9bcbd808
   width: 18px;
   height: 18px;
   border: 2px solid #ccc;
