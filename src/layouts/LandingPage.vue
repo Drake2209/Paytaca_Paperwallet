@@ -125,7 +125,7 @@ export default {
     captureEntropy(event) {
       if (this.addressGenerated || this.progress >= 100) return;
       this.entropy += `${event.clientX},${event.clientY}|`;
-      this.progress += 0.1;
+      this.progress += 0.3;
       if (this.progress >= 100) {
         this.progress = 100;
         this.generateAddress();
@@ -138,7 +138,7 @@ export default {
     updateEntropy() {
       if (this.addressGenerated || this.progress >= 100) return;
       this.entropy += this.manualEntropy;
-      this.progress += 0.1;
+      this.progress += 0.76;
       if (this.progress >= 100) {
         this.progress = 100;
         this.generateAddress();
@@ -151,7 +151,7 @@ export default {
       this.generatedAddress = cashAddress; // Use the BCH CashAddr format
       this.addressGenerated = true;
       this.qrCodeData = await QRCode.toDataURL(this.generatedAddress);
-      console.log(this.generatedAddress); // Log the generated address
+      // console.log(this.generatedAddress);
       this.redirectToWalletGenerator();
     },
 

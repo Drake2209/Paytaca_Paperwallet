@@ -6,7 +6,7 @@
     <header class="landing-header">
       <img src="../assets/paytaca.jpg" alt="Paytaca Logo" class="site-logo" />
       <a href="https://www.paytaca.com/#home" target="_blank" class="site-title">Paytaca.com</a>
-
+      
       <!-- Dark Mode Toggle Button -->
       <button class="toggle-button" @click="toggleDarkMode">
   <span v-if="isDarkMode">🌙</span>
@@ -52,15 +52,15 @@
           <label class="custom">Custom BCH Amount:</label>
           <select v-model="paymentDetails" @change="updatePublicQRCodes" class="dropdown">
             <option disabled value="">Amount</option>
-            <option v-for="amount in [0.0001, 0.001, 0.005, 0.05, 0.1, 0.25, 0.5, 0.75, 1, 5, 10]"
-                    :key="amount"
+            <option v-for="amount in [0.0001, 0.001, 0.005, 0.05, 0.1, 0.25, 0.5, 0.75, 1, 5, 10]" 
+                    :key="amount" 
                     :value="amount">
               {{ amount }} BCH
             </option>
           </select>
 
           <label class="address">Addresses to generate:</label>
-
+          
           <div class="loader-wrapper">
             <div v-if="loading" class="spinner"></div>
               <input class="input-bar" type="text" v-model.number="addressCount" @keyup.enter="generateMultipleKeys" />
@@ -68,8 +68,8 @@
                   {{ showAdvanceSettingdropdown ? 'Hide Advanced Settings' : 'Advance Settings' }}
             </button>
             </div>
-
-
+             
+      
             <div class="dropdown-wrapper">
             <div v-if="showAdvanceSettingdropdown" class="dropdown-panel">
             <p><strong>Check the BIP38 option, enter a passphrase, and click "Generate" to create an encrypted wallet</strong></p>
@@ -123,6 +123,8 @@
                     <div class="bch-amount">
                       <p>{{ wallet.customAmount }} BCH</p> <!-- Show the correct amount per wallet -->
                     </div>
+                  
+
                     <p v-if="bip38Enabled" class="bip38-label">BIP38 ENCRYPTED</p>
 
                     <!-- Public Address QR -->
@@ -307,7 +309,7 @@ export default {
       );
     },
 
-
+    
     encodeCashAddress({ prefix, type, payload }) {
       return cashaddr.encode(prefix, type.toUpperCase(), payload);
     },
@@ -478,7 +480,7 @@ export default {
 
     try {
       wallet.qrCodePublic = await QRCode.toDataURL(qrDataPublic, {
-        errorCorrectionLevel: 'L',
+        errorCorrectionLevel: 'L', 
       });
       console.log(`QR Code updated for ${cleanAddress}:`, wallet.qrCodePublic);
     } catch (error) {
@@ -490,7 +492,7 @@ generateQRCode(address, amount) {
     return `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=bitcoincash:${address}?amount=${amount}`;
   },
     // Converts the wallet section into an image and opens a print window
-    async printWallet() {
+    async printWallet() { 
       const printable = document.getElementById("printable-wallet");
       if (!printable) {
         console.error("Printable wallet section not found!");
@@ -542,10 +544,10 @@ generateQRCode(address, amount) {
       this.selectedDesign = design;
       this.generatedWallets.forEach(wallet => {
       wallet.design = { ...design };
-      });
+      }); 
       this.dropdownOpen = false;
       this.activeStep = 2;
-      this.addressCount = 1;
+      this.addressCount = 1; 
       this.generateMultipleKeys();
     },
   },
@@ -570,7 +572,7 @@ generateQRCode(address, amount) {
   border: 1.5px solid #E2E8F0;
   padding: 5px 5px;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 .tooltip-container {
@@ -675,7 +677,13 @@ generateQRCode(address, amount) {
 .spinner {
   position: absolute;
   top: 40%;
+<<<<<<< HEAD
   left: 17.8%;
+=======
+  left: 17%;
+  top: 40%;
+  left: 15%;
+>>>>>>> b6c1fe0a1708165422e10a2464a25eea9bcbd808
   width: 18px;
   height: 18px;
   border: 2px solid #ccc;
@@ -684,6 +692,11 @@ generateQRCode(address, amount) {
   animation: spin 1s linear infinite;
 }
 
+.input-bar {
+  width: 60px;
+  padding: 4px;
+  margin-top: 10px;
+}
 .input-bar {
   width: 60px;
   padding: 4px;
@@ -778,6 +791,8 @@ generateQRCode(address, amount) {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, transform 0.2s;
   position: absolute;
+  position: fixed;
+  position: fixed;
 }
 
 .toggle-button:hover {
@@ -798,15 +813,18 @@ generateQRCode(address, amount) {
 
 .landing-container {
   position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
+  height: 100vh;
   height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Poppins", sans-serif;
+  overflow-y: auto;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -815,10 +833,15 @@ generateQRCode(address, amount) {
   background-color: white;
   width: 100%;
   padding: 1% 1%;
+  width: 100%;
+  padding: 1% 1%;
   top: 0;
   left: 0;
   z-index: 1000;
+  z-index: 1000;
   display: flex;
+  align-items: center;
+  gap: 10px;
   align-items: center;
   gap: 10px;
   box-sizing: border-box;
@@ -826,6 +849,16 @@ generateQRCode(address, amount) {
 }
 
 .header-padding {
+  width: 100%;
+  height: 70px;
+  background-color: rgb(30 41 59 );
+  margin-top: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  padding: 5px 50px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
   width: 100%;
   height: 70px;
   background-color: rgb(30 41 59 );
@@ -1061,7 +1094,7 @@ font-family: 'Lexend';
 .selected-design .public-section {
   position: absolute;
   display: flex;
-  right: 89.9px;
+  right: 100.9px;
   top: 90px;
 
 }
@@ -1152,7 +1185,6 @@ font-family: 'Lexend';
   }
   .wallet-container {
     padding-right: 1.2%;
-    margin-bottom: 90%;
     max-width: 58vw;
   }
   .wallet-description {
@@ -1171,26 +1203,27 @@ font-family: 'Lexend';
     width: 55vw;
   }
   .selected-design .qr-code {
-  width: 6rem;
-  height: 6rem;
+  width: 6.9rem;
+  height: 6.9rem;
 }
   .selected-design .public-section {
-    right: 9.9%;
-    top: 16%;
+    right: 9.3%;
+    top: 15%;
   }
   .selected-design .private-section {
-    left: 1.5%;
-    top: 7%;
+    left: 1.2%;
+    top: 6%;
   }
   .private-key {
     top: 21%;
-    left: 18%;
+    left: 19%;
     right: 36%;
     font-size: clamp(0.7em, 0.9em, 0.6em);
   }
   .wallet-address {
-    font-size: clamp(0.8em, 0.9em, 0.6em );
+    font-size: clamp(0.9em, 0.9em, 0.6em );
     left: 75%;
+    top: 33px;
   }
   .bch-amount {
     margin-left: 16.5%;
@@ -1276,7 +1309,6 @@ font-family: 'Lexend';
   }
   .wallet-container {
     padding-right: 1.2%;
-    margin-bottom: 90%;
     width: 66vw;
   }
   .wallet-description {
@@ -1314,7 +1346,8 @@ font-family: 'Lexend';
     font-size: clamp(0.5rem, 0.6em, 0.5rem);
   }
   .wallet-address {
-    font-size: clamp(0.7rem, 1rem, 0.7rem );
+    font-size: clamp(0.3rem, 1rem, 0.6rem );
+    margin-top: 2%;
   }
   .bch-amount {
     margin-left: 12%;
