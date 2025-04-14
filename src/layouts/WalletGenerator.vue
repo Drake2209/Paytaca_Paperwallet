@@ -1,6 +1,6 @@
 <template>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <div :class="{ 'dark-mode': isDarkMode }" class="landing-container">
     <header class="landing-header">
@@ -166,19 +166,16 @@ import bs58 from "bs58";
 import cashaddr from "cashaddrjs";
 import html2canvas from 'html2canvas';
 import bip38 from '@asoltys/bip38'
-import posbver from 'src/assets/posbver.png';
-import newbnegaver from 'src/assets/newbnegaver.png';
-import posrver from 'src/assets/posrver.png';
-import newrnegaver from 'src/assets/newrnegaver.png';
-import gradbluever from 'src/assets/gradbluever.png';
-import flipgradbluever from 'src/assets/flipgradbluever.png';
-import gradredver from 'src/assets/gradredver.png';
-import flipgradredver from 'src/assets/flipgradredver.png';
-import gradredbluever from 'src/assets/gradredbluever.png';
-import flipgradposver from 'src/assets/flipgradposver.png';
-import purenegaver from 'src/assets/purenegaver.png';
-import blackverb from 'src/assets/blackverb.png';
-import blackverr from 'src/assets/blackverr.png';
+import pw1 from 'src/assets/pw1.png';
+import pw2 from 'src/assets/pw2.png';
+import pw3 from 'src/assets/pw3.png';
+import pw4 from 'src/assets/pw4.png';
+import pw5 from 'src/assets/pw5.png';
+import pw6 from 'src/assets/pw6.png';
+import pw7 from 'src/assets/pw7.png';
+import pw8 from 'src/assets/pw8.png';
+import pw9 from 'src/assets/pw9.png';
+import pw10 from 'src/assets/pw10.png';
 
 export default {
   data() {
@@ -206,19 +203,16 @@ export default {
       passphrase: '',
       //isEncrypted: false,
       designs: [
-        { id: 1, image: posbver, textColor: 'black' },
-        { id: 2, image: newbnegaver, textColor: 'white' },
-        { id: 3, image: posrver, textColor: 'black' },
-        { id: 4, image: newrnegaver, textColor: 'white' },
-        { id: 5, image: gradbluever, textColor: 'black' },
-        { id: 6, image: flipgradbluever, textColor: 'white' },
-        { id: 7, image: gradredver, textColor: 'black' },
-        { id: 8, image: flipgradredver, textColor: 'white' },
-        { id: 9, image: gradredbluever, textColor: 'black' },
-        { id: 10, image: flipgradposver, textColor: 'black' },
-        { id: 11, image: purenegaver, textColor: 'white' },
-        { id: 12, image: blackverb, textColor: 'white' },
-        { id: 13, image: blackverr, textColor: 'white' },
+        { id: 1, image: pw1, textColor: 'black' },
+        { id: 2, image: pw2, textColor: 'white' },
+        { id: 3, image: pw3, textColor: 'black' },
+        { id: 4, image: pw4, textColor: 'white' },
+        { id: 5, image: pw5, textColor: 'black' },
+        { id: 6, image: pw6, textColor: 'white' },
+        { id: 7, image: pw7, textColor: 'black' },
+        { id: 8, image: pw8, textColor: 'white' },
+        { id: 9, image: pw9, textColor: 'black' },
+        { id: 10, image: pw10, textColor: 'black' },
       ],
     };
   },
@@ -267,7 +261,7 @@ export default {
         document.body.classList.remove("light-mode");
       } else {
         document.body.classList.add("light-mode");
-        document.body.classList.remove("dark-mode");
+        document.body.classList.remove("light-mode");
       }
     },
     // Computes SHA-256 hash for a given data input
@@ -566,7 +560,7 @@ generateQRCode(address, amount) {
 
 .bip38-label {
   font-weight: bold;
-  font-size: 7.6px;
+  font-size: clamp(0.5rem, 1vw, 0.5rem);
   color: rgb(51, 65, 85);
   text-align: center;
   margin-bottom: 10px;
@@ -631,7 +625,6 @@ generateQRCode(address, amount) {
   padding: 4px 6px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  min-width: 150px;
 }
 
 .generate-btn {
@@ -672,7 +665,7 @@ generateQRCode(address, amount) {
 .dropdown-panel input[type = "text"] {
   margin-left: 5px;
   padding: 4px;
-  width: 100px;
+  width: 250px;
 }
 
 .loader-wrapper {
@@ -685,9 +678,9 @@ generateQRCode(address, amount) {
   top: 40%;
   left: 17%;
   top: 40%;
-  left: 17%;
-  width: 16px;
-  height: 16px;
+  left: 15%;
+  width: 18px;
+  height: 18px;
   border: 2px solid #ccc;
   border-top: 2px solid #077732;
   border-radius: 50%;
@@ -792,6 +785,7 @@ generateQRCode(address, amount) {
   justify-content: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease, transform 0.2s;
+  position: absolute;
   position: fixed;
   position: fixed;
 }
@@ -846,8 +840,7 @@ generateQRCode(address, amount) {
   align-items: center;
   gap: 10px;
   box-sizing: border-box;
-  position: fixed;
-  position: fixed;
+  position: absolute;
 }
 
 .header-padding {
@@ -998,7 +991,7 @@ font-family: 'Lexend';
   display: grid;
   margin-left: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  gap: 13px;
   justify-content: center;
   align-items: center;
 }
@@ -1141,7 +1134,7 @@ font-family: 'Lexend';
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 19px;
+  font-size: clamp(1.2rem, 1vw, 1.5rem);
   font-weight: bold;
   color: #DAA425;
   padding: 29%;
@@ -1160,7 +1153,7 @@ font-family: 'Lexend';
 
 .wallet-padding {
   margin-top: 0%;
-  margin-bottom: -0.2%;
+  margin-bottom: 0.1%;
   padding-top: 0%;
   padding: 0%;
   padding-bottom: 0%;
@@ -1223,12 +1216,12 @@ font-family: 'Lexend';
   }
   .bip38-label {
     margin-left: -0.5%;
-    margin-bottom: -2%;
+    margin-bottom: -1%;
   }
   .select-button {
     font-size: 0.8rem;
     line-height: 2%;
-    margin-bottom: 4%;
+    margin-bottom: -7%;
   }
 }
 
@@ -1238,6 +1231,7 @@ font-family: 'Lexend';
   }
   .wallet-container {
     padding-right: 1.2%;
+    margin-bottom: 100%;
     width: 61vw;
   }
   .wallet-description {
@@ -1247,9 +1241,13 @@ font-family: 'Lexend';
     margin-right: 4%;
   }
   .design-grid {
-    grid-template-columns: repeat(3, 1fr);
-    padding-right: 6%;
-    gap: 1.5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-right: 1%;
+    margin-right: 1%;
+    margin-bottom: 13%;
+    padding: 3%;
+    gap: 1%;
   }
   .dropdown-panel {
     width: 56.5vw;
@@ -1280,8 +1278,8 @@ font-family: 'Lexend';
     margin-right: -10%;
   }
   .bip38-label {
-    margin-left: -0.5%;
-    margin-bottom: -2%;
+    margin-left: -0.1%;
+    margin-bottom: -3%;
   }
   .select-button {
     font-size: 0.8rem;
@@ -1428,8 +1426,9 @@ font-family: 'Lexend';
     font-size: 0.5rem;
   }
   .dropdown-panel {
-    width: 60vw;
-    height: 23vh;
+    width: 63vw;
+    height: 16vh;
+    font-size: 0.6rem;
   }
   .dropdown-panel .strong,
   .dropdown-panel .advanced-settings-row {
@@ -1458,14 +1457,14 @@ font-family: 'Lexend';
     right: -25px;
   }
   .bch-amount {
-    font-size: 0.4rem;
-    margin-left: -4%;
-    margin-bottom: 11%;
+    font-size: 0.7rem;
+    margin-left: 10.1%;
+    margin-bottom: 4.9%;
   }
   .bip38-label {
-    font-size: 0.2rem;
-    margin-left: -48.5%;
-    margin-bottom: -35%;
+    font-size: 0.3rem;
+    margin-left: -17.5%;
+    margin-bottom: -15%;
     padding: 0.7% 0.7%;
   }
 }
@@ -1725,4 +1724,5 @@ font-family: 'Lexend';
     padding: 0.7% 0.7%;
   }
 }
+
 </style>
