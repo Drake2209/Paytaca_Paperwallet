@@ -666,7 +666,7 @@ generateQRCode(address, amount) {
 .dropdown-panel input[type = "text"] {
   margin-left: 5px;
   padding: 4px;
-  width: 250px;
+  width: 200px;
 }
 
 .loader-wrapper {
@@ -915,10 +915,11 @@ font-family: 'Lexend';
 }
 
 .step-container {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 8px;
   margin-bottom: 10px;
   overflow: hidden;
+  background-color: #E2E8F0;
 }
 
 .step-label1 {
@@ -1115,7 +1116,6 @@ font-family: 'Lexend';
 }
 
 .private-key {
-  font-family: 'Roboto';
   color: white;
   position: absolute;
   font-size: 10.9px;
@@ -1127,6 +1127,7 @@ font-family: 'Lexend';
   max-width: 90%;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: 'Lexend';
 }
 
 .bch-amount {
@@ -1153,8 +1154,8 @@ font-family: 'Lexend';
 }
 
 .wallet-padding {
-  margin-top: 0%;
-  margin-bottom: 0.1%;
+  margin-top: -1%;
+  margin-bottom: 0%;
   padding-top: 0%;
   padding: 0%;
   padding-bottom: 0%;
@@ -1226,8 +1227,8 @@ font-family: 'Lexend';
     margin-right: -10%;
   }
   .bip38-label {
-    margin-left: -0.5%;
-    margin-bottom: -1%;
+    margin-left: 0%;
+    margin-bottom: -3%;
   }
   .select-button {
     font-size: 0.8rem;
@@ -1276,7 +1277,7 @@ font-family: 'Lexend';
     top: 7%;
   }
   .private-key {
-    top: 20%;
+    top: 19.8%;
     left: 20%;
     right: 30%;
     font-size: clamp(0.6rem, 0.6em, 0.4rem);
@@ -1360,6 +1361,73 @@ font-family: 'Lexend';
     margin-bottom: 4%;
   }
 }
+
+@media (max-width: 1024px) {
+  .landing-container {
+    max-width: 100vw;
+  }
+  .wallet-container {
+    padding-right: 1.2%;
+    width: 66vw;
+  }
+  .wallet-description {
+    margin-top: 0%;
+  }
+  .loader-wrapper {
+    margin-right: 4%;
+    font-size: 0.9rem;
+  }
+  .design-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding-right: 6%;
+    height: 100vh;
+    gap: 1.5%;
+  }
+  .dropdown-panel {
+    width: 60.5vw;
+    font-size: 0.6rem;
+  }
+  .selected-design .qr-code {
+  width: 5rem;
+  height: 5rem;
+  }
+  .selected-design .public-section {
+    right: 9.5%;
+    top: 16%;
+  }
+  .selected-design .private-section {
+    left: 1.5%;
+    top: 7%;
+  }
+  .private-key {
+    top: 20%;
+    left: 20%;
+    right: 30%;
+    font-size: clamp(0.5rem, 0.6em, 0.5rem);
+  }
+  .wallet-address {
+    font-size: clamp(0.3rem, 1rem, 0.6rem );
+    margin-top: 2%;
+  }
+  .bch-amount {
+    margin-left: 12%;
+    margin-right: -10%;
+  }
+  .bip38-label {
+    margin-left: -7.7%;
+    margin-bottom: -8%;
+  }
+  .select-button {
+    top: 50px;
+    font-size: 0.8rem;
+    line-height: 2%;
+    margin-bottom: 4%;
+  }
+}
+
+
+
+
 
 @media (max-width: 768px) {
   .light-mode .landing-container,
@@ -1458,24 +1526,24 @@ font-family: 'Lexend';
     right: 16%;
   }
   .private-key {
-    font-size: 0.38rem;
+    font-size: 5.8px;
     top: 20%;
-    margin-right: 3%;
+    margin-right: 0%;
   }
   .wallet-address {
-    font-size: 0.4rem;
+    font-size: 7.2px;
     margin-top: 3%;
     right: -25px;
   }
   .bch-amount {
     font-size: 0.7rem;
-    margin-left: 10.1%;
-    margin-bottom: 4.9%;
+    margin-left: 9.8%;
+    margin-bottom: 2.3%;
   }
   .bip38-label {
     font-size: 0.3rem;
-    margin-left: -17.5%;
-    margin-bottom: -15%;
+    margin-left: -17%;
+    margin-bottom: -17%;
     padding: 0.7% 0.7%;
   }
 }
