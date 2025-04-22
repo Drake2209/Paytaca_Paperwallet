@@ -129,13 +129,14 @@ export default defineConfig(() => {
       bundler: 'builder',
       builder: {
         appId: 'paytaca-paperwallet',
+        icon: 'src-electron/icons/paytacawin.ico',
         extraFiles: [
           'src/assets/**/*'
         ],
-        /*mac: {
+        mac: {
           target: 'dmg',
           category: 'public.app-category.utilities'
-        },/* Uncomment for macOS specific settings */
+        },
         linux: {
           target: ['AppImage', 'deb'],
           category: 'Utility',
